@@ -1,0 +1,15 @@
+<h1>Photo Storage</h1>
+<div style="display: flex;">
+    <button style="align-self: end;" type="button" [routerLink]="['/upload']">Upload</button>
+</div>
+<div *ngIf="bundles$ | async as bs">
+    <table *ngIf="bs.length > 0 else noBundle">
+        <tr *ngFor="let b of bs" [routerLink]="['/bundle', b.bundleId]">
+            <td>{{ b.title }}</td>
+            <td>{{ b.date | date:'mediumDate'}}</td>
+        </tr>
+    </table>
+    <ng-template #noBundle>
+        <h3>No bundles found, upload to begin!</h3>
+    </ng-template>
+</div>

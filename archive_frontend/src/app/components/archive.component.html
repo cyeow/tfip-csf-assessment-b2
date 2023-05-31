@@ -1,0 +1,11 @@
+<div *ngIf="bundle$ | async as b">
+    <h1>{{ b.title }}</h1>
+    <h4>by {{ b.name }} on {{ b.date | date:'mediumDate' }}</h4>
+    <p>{{ b.comments }}</p>
+    <p *ngFor="let u of b.urls" style="display: grid;">
+        <img src="{{ u }}" style="width: 90vw; height: auto; align-self: center; justify-self: center;">
+    </p>
+</div>
+<div style="display: grid;">
+    <button style="justify-self: end;" type="button" [routerLink]="['/']">Back</button>
+</div>

@@ -1,0 +1,35 @@
+<form [formGroup]="form" (submit)="upload()">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input formControlName="name" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Title:</td>
+            <td>
+                <input formControlName="title" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Comments:</td>
+            <td>
+                <textarea formControlName="comments" cols="30" rows="10"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Archive:</td>
+            <td>
+                <input formControlName="archive" #archiveFile type="file" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" [routerLink]="['/']">Cancel</button>
+                &nbsp;&nbsp;
+                <button type="submit" [disabled]="form.invalid">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
